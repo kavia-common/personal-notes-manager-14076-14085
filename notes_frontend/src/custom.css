@@ -1,0 +1,291 @@
+:root {
+  --primary-color: #1976D2;
+  --secondary-color: #424242;
+  --accent-color: #FFCA28;
+  --bg-main: #ffffff;
+  --bg-dark: #f5f6fa;
+  --text-main: #222;
+  --navbar-bg: var(--primary-color);
+  --navbar-text: #fff;
+  --sidebar-bg: var(--secondary-color);
+  --sidebar-text: #fff;
+  --danger: #c62828;
+}
+
+body {
+  background: var(--bg-main);
+  color: var(--text-main);
+  font-family: 'Segoe UI', Arial, sans-serif;
+  margin: 0;
+  min-height: 100vh;
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/* Navbar styles */
+.navbar {
+  width: 100%;
+  background: var(--navbar-bg);
+  color: var(--navbar-text);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  height: 56px;
+  box-sizing: border-box;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.navbar-brand {
+  font-size: 1.35rem;
+  font-weight: 600;
+}
+.navbar-links {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.navbar-links li {
+  display: flex;
+}
+.btn {
+  padding: 0.5em 1.2em;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  margin: 0.1rem;
+  cursor: pointer;
+  background: var(--primary-color);
+  color: #fff;
+  font-weight: 500;
+  transition: background 0.15s;
+}
+.btn-accent {
+  background: var(--accent-color);
+  color: #222;
+}
+.btn-danger {
+  background: var(--danger);
+  color: #fff;
+}
+.btn.btn-small {
+  font-size: 0.95rem;
+  padding: 0.4em 0.9em;
+}
+.btn-logout {
+  background: var(--secondary-color);
+}
+.btn:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+.error-message {
+  color: var(--danger);
+  background: #fff2f2;
+  border: 1px solid #ffe0e0;
+  border-radius: 4px;
+  padding: 0.6em 1em;
+  margin: 1em 0 0 0;
+  font-size: 0.97em;
+}
+
+.user-info {
+  background: rgba(255,255,255,0.1);
+  padding: 0.27em 0.75em;
+  border-radius: 12px;
+  font-size: 1em;
+}
+
+/* Auth container (login/register) */
+.auth-container {
+  background: var(--bg-main);
+  box-shadow: 0 4px 28px rgba(0,0,0,0.07);
+  max-width: 400px;
+  margin: 48px auto;
+  padding: 34px 30px 30px;
+  border-radius: 16px;
+  text-align: left;
+}
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 17px;
+}
+.auth-form label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 500;
+}
+.auth-form input {
+  margin-top: 4px;
+  padding: 0.65em 1em;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+  background: #fafbfc;
+}
+.auth-form input:focus {
+  outline: 2px solid var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.notes-layout {
+  display: flex;
+  min-height: calc(100vh - 56px);
+  margin: 0;
+  overflow-y: hidden;
+  background: var(--bg-dark);
+}
+.notes-sidebar {
+  width: 270px;
+  min-width: 190px;
+  background: var(--sidebar-bg);
+  color: var(--sidebar-text);
+  flex-shrink: 0;
+  padding: 0 0 0 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  border-right: 2px solid #e3e3e3;
+}
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 19px 12px 18px;
+  border-bottom: 1px solid #353535;
+  background: rgba(0,0,0,0.06);
+}
+.notes-list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  flex-grow: 1;
+  overflow-y: auto;
+}
+.notes-list li {
+  cursor: pointer;
+  padding: 15px 18px 11px 21px;
+  border-bottom: 1px solid #393939;
+  transition: background 0.11s;
+  font-size: 1.07em;
+}
+.notes-list li.active, .notes-list li:hover {
+  background: rgba(255,202,40,0.15);
+  color: var(--accent-color);
+}
+.notes-list .title {
+  font-weight: 600;
+  font-size: 1.09em;
+  margin-bottom: 3px;
+  color: #fff;
+}
+.notes-list .date {
+  color: #f3e29b;
+  opacity: 0.8;
+  font-size: 0.92em;
+}
+
+.note-editor-main {
+  flex-grow: 1;
+  display: flex;
+  align-items: stretch;
+  padding: 43px max(7vw,2rem) 0 max(7vw,2rem);
+}
+.note-editor {
+  background: #fff;
+  padding: 32px 26px 26px;
+  border-radius: 15px;
+  box-shadow: 0 4px 18px rgba(26,118,210,0.09);
+  width: 100%;
+  max-width: 650px;
+  margin: 0 auto;
+  min-height: 340px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.3em;
+}
+.note-editor label {
+  font-weight: 600;
+  display: flex;
+  flex-direction: column;
+  font-size: 1.03em;
+  gap: 0.3em;
+}
+.note-editor input, .note-editor textarea {
+  font-size: 1em;
+  margin-top: 4px;
+  padding: 0.73em 1em;
+  border: 1px solid #cfd8dc;
+  border-radius: 7px;
+  background: #f0f5fa;
+  resize: none;
+}
+.note-editor input:focus, .note-editor textarea:focus {
+  border-color: var(--primary-color);
+  outline: 2px solid var(--primary-color);
+}
+.editor-actions {
+  margin-top: 12px;
+  display: flex;
+  gap: 10px;
+}
+
+.empty-state {
+  color: #969696;
+  font-size: 1.14em;
+  margin: auto;
+  text-align: center;
+}
+
+/* Home (welcome) */
+.home {
+  margin: 100px auto;
+  padding: 45px 26px;
+  background: #fff;
+  border-radius: 12px;
+  max-width: 490px;
+  text-align: center;
+  border: 1px solid #eee;
+  box-shadow: 0 3px 16px rgba(25,118,210,0.07);
+}
+@media (max-width: 1050px) {
+  .notes-layout {
+    flex-direction: column;
+  }
+  .notes-sidebar {
+    width: 100%;
+    min-width: unset;
+    border-right: none;
+    min-height: unset;
+    border-bottom: 2px solid #e3e3e3;
+  }
+  .note-editor-main {
+    padding: 14px 5vw 0 5vw;
+  }
+}
+@media (max-width: 650px) {
+  .navbar {
+    flex-direction: column;
+    gap: 0.5rem;
+    height: auto;
+    padding: 0.6em 0.7em;
+  }
+  .notes-sidebar {
+    font-size: 0.98em;
+  }
+  .note-editor {
+    padding: 13px 6px;
+    min-width: 0;
+  }
+}
